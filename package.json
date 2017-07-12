@@ -24,15 +24,15 @@
   },
   "homepage": "https://github.com/FormidableLabs/appr#readme",
   "devDependencies": {
-    "babel-eslint": "^7.1.1",
-    "eslint": "^3.17.1",
-    "eslint-config-formidable": "^2.0.1",
+    "babel-eslint": "^7.2.3",
+    "eslint": "^4.2.0",
+    "eslint-config-formidable": "^3.0.0",
     "eslint-plugin-babel": "^4.1.1",
-    "eslint-plugin-filenames": "^1.1.0",
-    "eslint-plugin-import": "^2.2.0"
+    "eslint-plugin-filenames": "^1.2.0",
+    "eslint-plugin-import": "^2.7.0"
   },
   "dependencies": {
-    "exp": "^36.0.0",
+    "exp": "^42.2.0",
     "request": "^2.81.0"
   }
 }

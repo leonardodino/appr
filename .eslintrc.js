@@ -7,9 +7,6 @@ module.exports = {
   env: {
     node: true
   },
-  ecmaFeatures: {
-    modules: true
-  },
   rules: {
     'no-unused-vars': [
       'error',
