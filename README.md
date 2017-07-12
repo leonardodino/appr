@@ -24,6 +24,8 @@
 
 ## Etymology /ɛtɪˈmɒlədʒi/
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/leonardodino/appr.svg)](https://greenkeeper.io/)
+
 ### appr /ˈapə/
 *noun*
 - **appr** - Pull Request Review Apps for React Native
