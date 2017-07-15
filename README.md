@@ -1,19 +1,9 @@
-<h1 align="center">appr</h1>
-<p align="center">
-  <a title='License' href="https://raw.githubusercontent.com/FormidableLabs/appr/master/LICENSE" height="18">
-    <img src='https://img.shields.io/badge/license-MIT-blue.svg' />
-  </a>
-  <a href="https://badge.fury.io/js/appr">
-    <img src="https://badge.fury.io/js/appr.svg" alt="npm version" height="18">
-  </a>
-  <a href="https://travis-ci.org/FormidableLabs/appr">
-    <img src="https://travis-ci.org/FormidableLabs/appr.svg?branch=master" alt=travis" height="18">
-  </a>
-</p>
+# appr
+[![npm version][npm-badge]][npm-url]
+[![Build Status][travis-badge]][travis-url]
+[![License][license-badge]][license-url]
 
-<h4 align="center">
-  Automatically Deploy Pull Requests for Create React Native App and Expo
-</h4>
+#### Automatically Deploy Commits for `create-react-native-app` and `Expo`
 
 ***
 
@@ -43,35 +33,35 @@ Enter **appr**. Built on [Expo](https://expo.io) and inspired by [Expo Sketch](h
 
 Add appr to your project:
 ```sh
-  yarn --dev appr
+  yarn add -D @leonardodino/appr
 ```
 
 Or, using npm:
 ```sh
-  npm install --dev appr
+  npm install --save-dev @leonardodino/appr
 ```
 
 Add the `appr` task to the `scripts` section of your package.json:
 ```diff
   scripts: {
-+   "appr": "appr",
++   "appr": "node node_modules/appr/bin/appr",
+	...
   }
 ```
 
 Next, configure one of the currently supported CI environments:
 - [Configuring Travis](#configuring-travis)
-- [All other CIs](#configuring-other-cis)
 
-[Contributions](#contributing) for other CI platforms welcome.
+[Contributions](https://github.com/leonardodino/appr/pulls) for other CI platforms welcome.
 
 ## Limitations
+
 There are a few limitations you should be aware of. **appr** is currently not able to deploy:
 
 1. React Native apps started with something other than create-react-native-app or Expo.
 2. Ejected React Native apps containing custom native module dependencies.
 3. Pull Requests from forked repositories. This is due to Travis security policies (wisely) not exposing secure environment variables to forked builds.
 
-[Contributions](#contributing) and ideas for solutions welcome.
 
 ## Configuring Travis
 
@@ -114,13 +104,10 @@ After enabled, you'll be taken to your project build page. Before triggering the
 
 You should now be able to create a new branch, make changes, and open a pull request. If the stars are aligned, the Travis build should publish the app to Expo!
 
-## Configuring other CIs
 
-If your preferred CI is not explicitly supported by _appr_, but supports building GitHub pull requests,
-you can use it by [defining environment variables as shown in the default config file](scripts/config/default.js).
-
-## Contributing
-
-Improvements and additions welcome. For large changes, please submit a discussion issue before jumping to coding; we'd hate you to waste the effort.
-
-In lieu of a formal style guide, follow the included eslint rules, and use [Prettier](https://github.com/prettier/prettier) to format your code.
+[npm-badge]: https://img.shields.io/npm/v/@leonardodino/appr.svg
+[npm-url]: https://www.npmjs.com/package/basic-crypto
+[travis-badge]: https://api.travis-ci.org/leonardodino/appr.svg
+[travis-url]: https://travis-ci.org/leonardodino/appr
+[license-badge]: https://img.shields.io/badge/license-MIT-blue.svg
+[license-url]: https://raw.githubusercontent.com/leonardodino/appr/master/LICENSE
