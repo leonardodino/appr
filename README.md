@@ -68,14 +68,24 @@ There are a few limitations you should be aware of. **appr** is currently not ab
 [Travis CI](https://travis-ci.org) is free for open source projects, and offers paid plans for private repositories. To get started, create an account on Travis using your GitHub login.
 
 #### Add .travis.yml to your project
-Add the following to your `.travis.yml`:
+Add the following to your `.travis.yml`: (replacing YOUR-APP-NAME-HERE)
 ```
 language: node_js
-node_js:
-  - "node"
 cache: yarn
+env:
+  - APPR_ENV=travis
+  - APPR_NOTIFY_SERVICE=github
+  - APPR_APP_SLUG=YOUR-APP-NAME-HERE
 script:
-  - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then yarn appr; fi'
+  - 'yarn test'
+after_success:
+  - 'APPR_EVENT="$TRAVIS_EVENT_TYPE" yarn appr'
+deploy:
+  provider: script
+  script: 'APPR_EVENT=release yarn appr'
+  skip_cleanup: true
+  on:
+    branch: master
 ```
 This will configure your Travis build to use the latest Node.js and Yarn, and ensure that the **appr** build only runs on Pull Request builds.
 
