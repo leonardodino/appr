@@ -1,6 +1,6 @@
 {
-  "name": "appr",
-  "version": "2.0.0-alpha.1",
+  "name": "@leonardodino/appr",
+  "version": "2.0.0",
   "description": "Pull Request Review Apps for create-react-native-app / Expo",
   "main": "index.js",
   "scripts": {
@@ -12,15 +12,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/FormidableLabs/appr.git"
+    "url": "git+https://github.com/leonardodino/appr.git"
   },
   "bin": "./bin/appr",
   "author": "Jani Eväkallio <jani.evakallio@formidable.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/FormidableLabs/appr/issues"
+    "url": "https://github.com/leonardodino/appr/issues"
   },
-  "homepage": "https://github.com/FormidableLabs/appr#readme",
+  "homepage": "https://github.com/leonardodino/appr#readme",
   "devDependencies": {
     "babel-eslint": "^7.2.3",
     "eslint": "^4.2.0",
