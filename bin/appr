@@ -1,0 +1,12 @@
+#!/usr/bin/env node
+/* eslint-disable global-require, no-console */
+
+if(!require('is-async-supported')()){
+	require('async-to-gen/register')({sourceMaps: false})
+}
+
+require('..')(process.env).catch((error) => {
+	console.log('\n', '-------------')
+	console.log('\n', '[appr] Error !!!')
+	console.log('\n', error)
+})

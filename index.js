@@ -1,29 +1,30 @@
-#!/usr/bin/env node
+const parse = require('./lib/config')
+const {log, spawn} = require('./lib/utils')
+const preDeploy = require('./lib/pre-deploy')
+const postDeploy = require('./lib/post-deploy')
 
-const spawn = require('./scripts/spawn');
-const config = require('./scripts/config');
-const log = require('./scripts/log');
-const preDeploy = require('./scripts/pre-deploy');
-const postDeploy = require('./scripts/post-deploy');
-const localExp = './node_modules/exp/bin/exp.js';
-log('Logging into Expo...');
-spawn(localExp, ['login', '-u', config.expUsername, '-p', config.expPassword], loginError => {
-  if (loginError) {
-    throw new Error('Failed to log into Expo');
-  } else {
-    log('Logged into Expo.');
-    log('Preparing project for publish...');
-    preDeploy();
-  }
+const EXP = './node_modules/exp/bin/exp.js'
+const NI = '--non-interactive'
 
-  log('Publishing project into Expo.');
-  spawn(localExp, ['publish'], publishError => {
-    if (publishError) {
-      throw new Error('Failed to publish package to Expo');
-    } else {
-      log('Published project.');
-      log('Notifying GitHub...');
-      postDeploy();
-    }
-  });
-});
+const exp = {
+	login: (u, p) => spawn(EXP, ['login', NI, '-u', u, '-p', p]),
+	publish: () => spawn(EXP, ['publish', NI]),
+}
+
+module.exports = async (env) => {
+	log('Parsing configuration...')
+	const config = parse(env)
+	const {expUsername, expPassword} = config
+
+	log('Logging into Expo...')
+	await exp.login(expUsername, expPassword)
+
+	log('Preparing project for publish...')
+	await preDeploy(config)
+
+	log('Publishing project into Expo...')
+	await exp.publish()
+
+	log('Running PostDeploy...')
+	await postDeploy(config)
+}

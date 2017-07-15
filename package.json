@@ -1,10 +1,10 @@
 {
   "name": "appr",
-  "version": "1.0.1",
+  "version": "2.0.0-alpha.1",
   "description": "Pull Request Review Apps for create-react-native-app / Expo",
   "main": "index.js",
   "scripts": {
-    "test": "eslint scripts/"
+    "test": "eslint . bin/appr"
   },
   "engines": {
     "node": ">= 6.4.0",
@@ -14,9 +14,7 @@
     "type": "git",
     "url": "git+https://github.com/FormidableLabs/appr.git"
   },
-  "bin": {
-    "appr": "./index.js"
-  },
+  "bin": "./bin/appr",
   "author": "Jani Eväkallio <jani.evakallio@formidable.com>",
   "license": "MIT",
   "bugs": {
@@ -32,7 +30,16 @@
     "eslint-plugin-import": "^2.7.0"
   },
   "dependencies": {
-    "exp": "^42.2.0",
+    "@expo/spawn-async": "^1.2.8",
+    "async-to-gen": "^1.3.3",
+    "deepmerge": "^1.5.0",
+    "fs-extra": "^3.0.1",
+    "got": "^7.1.0",
+    "is-async-supported": "^1.2.0",
+    "lodash": "^4.17.4",
     "request": "^2.81.0"
+  },
+  "peerDependencies": {
+    "exp": "x"
   }
 }
