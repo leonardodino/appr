@@ -99,7 +99,7 @@
     "lines-around-comment": "off",
     "lines-around-directive": "error",
     "max-depth": "error",
-    "max-len": "error",
+    "max-len": ["error", {"code": 80, "ignoreStrings": true, "ignoreTemplateLiterals": true}],
     "max-lines": "error",
     "max-nested-callbacks": "error",
     "max-params": "off",

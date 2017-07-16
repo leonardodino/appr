@@ -2,7 +2,7 @@
 /* eslint-disable global-require, no-console */
 
 if(!require('is-async-supported')()){
-	require('async-to-gen/register')({sourceMaps: false})
+	require('async-to-gen/register')({sourceMaps: false, excludes: null})
 }
 
 require('..')(process.env).catch((error) => {

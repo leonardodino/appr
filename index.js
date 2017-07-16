@@ -14,10 +14,9 @@ const exp = {
 module.exports = async (env) => {
 	log('Parsing configuration...')
 	const config = parse(env)
-	const {expUsername, expPassword} = config
 
 	log('Logging into Expo...')
-	await exp.login(expUsername, expPassword)
+	await exp.login(config.expUsername, config.expPassword)
 
 	log('Preparing project for publish...')
 	await preDeploy(config)

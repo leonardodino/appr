@@ -14,7 +14,9 @@
     "type": "git",
     "url": "git+https://github.com/leonardodino/appr.git"
   },
-  "bin": "./bin/appr",
+  "bin": {
+    "appr": "./bin/appr"
+  },
   "author": "Jani Eväkallio <jani.evakallio@formidable.com>",
   "license": "MIT",
   "bugs": {
