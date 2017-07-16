@@ -116,7 +116,7 @@ You should now be able to create a new branch, make changes, and open a pull req
 
 
 [npm-badge]: https://img.shields.io/npm/v/@leonardodino/appr.svg
-[npm-url]: https://www.npmjs.com/package/basic-crypto
+[npm-url]: https://www.npmjs.com/package/@leonardodino/appr
 [travis-badge]: https://api.travis-ci.org/leonardodino/appr.svg
 [travis-url]: https://travis-ci.org/leonardodino/appr
 [license-badge]: https://img.shields.io/badge/license-MIT-blue.svg
