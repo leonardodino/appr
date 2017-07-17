@@ -2,6 +2,6 @@
 /* eslint-disable global-require, no-console */
 require('..')(process.env).catch((error) => {
 	console.log('\n', '-------------')
-	console.log('\n', '[appr] Unhandled Error !!!')
+	console.log('\n', '[shippr] Unhandled Error !!!')
 	console.log('\n', error)
 })

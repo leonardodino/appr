@@ -1,10 +1,10 @@
 {
-  "name": "@leonardodino/appr",
-  "version": "2.0.2",
+  "name": "shippr",
+  "version": "0.0.0",
   "description": "Pull Request Review Apps for create-react-native-app / Expo",
   "main": "index.js",
   "scripts": {
-    "test": "eslint . bin/appr"
+    "test": "eslint . bin/shippr"
   },
   "engines": {
     "node": ">= 6.4.0",
@@ -12,24 +12,21 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/leonardodino/appr.git"
+    "url": "git+https://github.com/leonardodino/shippr.git"
   },
   "bin": {
-    "appr": "./bin/appr"
+    "shippr": "./bin/shippr"
   },
-  "author": "Jani Eväkallio <jani.evakallio@formidable.com>",
+  "author": "Leonardo Dino",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/leonardodino/appr/issues"
+    "url": "https://github.com/leonardodino/shippr/issues"
   },
-  "homepage": "https://github.com/leonardodino/appr#readme",
+  "homepage": "https://github.com/leonardodino/shippr#readme",
   "devDependencies": {
     "babel-eslint": "^7.2.3",
     "eslint": "^4.2.0",
-    "eslint-config-formidable": "^3.0.0",
-    "eslint-plugin-babel": "^4.1.1",
-    "eslint-plugin-filenames": "^1.2.0",
-    "eslint-plugin-import": "^2.7.0"
+    "eslint-plugin-babel": "^4.1.1"
   },
   "dependencies": {
     "@expo/spawn-async": "^1.2.8",
@@ -38,8 +35,7 @@
     "fs-extra": "^3.0.1",
     "got": "^7.1.0",
     "is-async-supported": "^1.2.0",
-    "lodash": "^4.17.4",
-    "request": "^2.81.0"
+    "lodash": "^4.17.4"
   },
   "peerDependencies": {
     "exp": "x"

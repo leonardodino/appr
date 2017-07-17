@@ -1,4 +1,4 @@
-# appr
+# shippr
 [![npm version][npm-badge]][npm-url]
 [![Build Status][travis-badge]][travis-url]
 [![License][license-badge]][license-url]
@@ -7,19 +7,19 @@
 
 ***
 
-**appr builds and deploys pull requests** in your [create-react-native-app](https://github.com/react-community/create-react-native-app) (and other [Expo](https://expo.io/)-based) projects, and replies with a link you can open directly on your device or emulator.
+**shippr builds and deploys pull requests** in your [create-react-native-app](https://github.com/react-community/create-react-native-app) (and other [Expo](https://expo.io/)-based) projects, and replies with a link you can open directly on your device or emulator.
 
 ## Etymology /ɛtɪˈmɒlədʒi/
 
-### appr /ˈapə/
+### shippr /ˈapə/
 *noun*
-- **appr** - Pull Request Review Apps for React Native
-- **appr** - Portmanteaux of *app* and *PR*.
-- **appr** - Throwback to Web 2.0, when everything was bettr
+- **shippr** - Pull Request Review Apps for React Native
+- **shippr** - Portmanteaux of *app* and *PR*.
+- **shippr** - Throwback to Web 2.0, when everything was bettr
 
 ## What are "Review Apps"?
 
-Mature technical organizations peer-review their code. Reviewing code on GitHub is simple enough: for most well-crafted pull requests, you can review the code diff in your browser, and either approve the changes, or request further improvements.
+Mature technical organizations peer-review their code. Reviewing code on GitHub is simple enough: for most well-crafted pull requests, you can review the code diff in your browser, and either shipprove the changes, or request further improvements.
 
 Testing another developer's changes isn't quite as easy. Typically, you will have to stash any work in progress in your own workspace, pull down the remote branch, install dependencies, compile and start the application before you can verify that the changes work as intended.
 
@@ -27,36 +27,36 @@ Since it was launched, I've loved Heroku's GitHub-integrated [Review Apps](https
 
 Unfortunately, a one-click workflow like this doesn't exist for mobile development. To add insult to injury, the ramp-up time to test mobile app changes on your local device can be much longer than for web applications.
 
-Enter **appr**. Built on [Expo](https://expo.io) and inspired by [Expo Sketch](https://sketch.expo.io), **appr** aims to make peer-reviewing React Native app code as easy as static websites
+Enter **shippr**. Built on [Expo](https://expo.io) and inspired by [Expo Sketch](https://sketch.expo.io), **shippr** aims to make peer-reviewing React Native app code as easy as static websites
 
 ## Getting started
 
-Add appr to your project:
+Add shippr to your project:
 ```sh
-  yarn add -D @leonardodino/appr
+	yarn add -D shippr
 ```
 
 Or, using npm:
 ```sh
-  npm install --save-dev @leonardodino/appr
+	npm install --save-dev shippr
 ```
 
-Add the `appr` task to the `scripts` section of your package.json:
+Add the `shippr` task to the `scripts` section of your package.json:
 ```diff
-  scripts: {
-+   "appr": "node node_modules/appr/bin/appr",
+	scripts: {
++   "shippr": "node node_modules/shippr/bin/shippr",
 	...
-  }
+	}
 ```
 
 Next, configure one of the currently supported CI environments:
 - [Configuring Travis](#configuring-travis)
 
-[Contributions](https://github.com/leonardodino/appr/pulls) for other CI platforms welcome.
+[Contributions](https://github.com/leonardodino/shippr/pulls) for other CI platforms welcome.
 
 ## Limitations
 
-There are a few limitations you should be aware of. **appr** is currently not able to deploy:
+There are a few limitations you should be aware of. **shippr** is currently not able to deploy:
 
 1. React Native apps started with something other than create-react-native-app or Expo.
 2. Ejected React Native apps containing custom native module dependencies.
@@ -73,29 +73,29 @@ Add the following to your `.travis.yml`: (replacing YOUR-APP-NAME-HERE)
 language: node_js
 cache: yarn
 env:
-  - APPR_ENV=travis
-  - APPR_NOTIFY_SERVICE=github
-  - APPR_APP_SLUG=YOUR-APP-NAME-HERE
+	- SHIPPR_ENV=travis
+	- SHIPPR_NOTIFY_SERVICE=github
+	- SHIPPR_APP_SLUG=YOUR-APP-NAME-HERE
 script:
-  - 'yarn test'
+	- 'yarn test'
 after_success:
-  - 'APPR_EVENT="$TRAVIS_EVENT_TYPE" yarn appr'
+	- 'SHIPPR_EVENT="$TRAVIS_EVENT_TYPE" yarn shippr'
 deploy:
-  provider: script
-  script: 'APPR_EVENT=release yarn appr'
-  skip_cleanup: true
-  on:
-    branch: master
+	provider: script
+	script: 'SHIPPR_EVENT=release yarn shippr'
+	skip_cleanup: true
+	on:
+		branch: master
 ```
-This will configure your Travis build to use the latest Node.js and Yarn, and ensure that the **appr** build only runs on Pull Request builds.
+This will configure your Travis build to use the latest Node.js and Yarn, and ensure that the **shippr** build only runs on Pull Request builds.
 
 #### (Optional) Running tests
 
-If you're not already using Travis, it's advisable to run your unit tests before deploying review apps. You can do this by adding other steps in the `script` section, and always leaving the **appr** step last:
+If you're not already using Travis, it's advisable to run your unit tests before deploying review apps. You can do this by adding other steps in the `script` section, and always leaving the **shippr** step last:
 script:
 ```diff
 + - yarn ci-test-command
-  - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then yarn appr; fi'
+	- 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then yarn shippr; fi'
 ```
 
 Note that the default `test` command in `create-react-native-app` runs Jest in `--watch` mode, which will hang forever. You can either change the `test` script in your package.json, or, or override the test command as above.
@@ -115,9 +115,9 @@ After enabled, you'll be taken to your project build page. Before triggering the
 You should now be able to create a new branch, make changes, and open a pull request. If the stars are aligned, the Travis build should publish the app to Expo!
 
 
-[npm-badge]: https://img.shields.io/npm/v/@leonardodino/appr.svg
-[npm-url]: https://www.npmjs.com/package/@leonardodino/appr
-[travis-badge]: https://api.travis-ci.org/leonardodino/appr.svg
-[travis-url]: https://travis-ci.org/leonardodino/appr
+[npm-badge]: https://img.shields.io/npm/v/shippr.svg
+[npm-url]: https://www.npmjs.com/package/shippr
+[travis-badge]: https://api.travis-ci.org/leonardodino/shippr.svg
+[travis-url]: https://travis-ci.org/leonardodino/shippr
 [license-badge]: https://img.shields.io/badge/license-MIT-blue.svg
-[license-url]: https://raw.githubusercontent.com/leonardodino/appr/master/LICENSE
+[license-url]: https://raw.githubusercontent.com/leonardodino/shippr/master/LICENSE
