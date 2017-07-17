@@ -1,6 +1,6 @@
 {
   "name": "shippr",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Pull Request Review Apps for create-react-native-app / Expo",
   "main": "index.js",
   "scripts": {
